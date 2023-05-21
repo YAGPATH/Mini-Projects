@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage Product Page</title>
+    <style>
+
+        h1{
+            text-align: center;
+        }
+      #main {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        margin: auto;
+        justify-content: center;
+        width: 80%
+        
+        
+      }
+
+      #main > div{
+        margin: 10px;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        text-align: center;
+
+      }
+
+      #main img {
+        width: 100%;
+       
+      }
+
+      h3{
+        padding: 5px;
+        margin: 15px;
+      }
+
+      #main > div > div {
+        display: flex;
+        justify-content: space-around;
+        
+        
+      }
+
+      #main > div > div > p:nth-child(2) {
+        text-decoration: line-through;
+        color: grey
+      }
+
+      button {
+        width: 80%;
+        padding: 5px;
+        margin: 20px 10px;
+       
+        
+      }
+
+      button:hover {
+        cursor: pointer;
+        background-color: darkgrey;
+        border-radius: 5px;
+        border: 0px;
+      }
+
+
+      </style>
+
+</head>
+<body>
+    <h1>Womens Page</h1>
+    <div id = "main"></div>
+</body>
+</html>
+
+<script>
+   var womensData = [
+    {
+      image_url:
+        "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg",
+      name: "WOMEN'S REEBOK PRINT LEGGINGS ",
+      price: 1549,
+      strikedoffprice: 1799,
+    },
+    {
+      image_url:
+      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg",     
+       name: "WOMEN'S REEBOK POLYTIGHT",
+      price: 1249,
+      strikedoffprice: 1749,
+    },
+    {
+      image_url:
+      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg",      
+      name: "WOMEN'S REEBOK SLEEVE TEE",
+      price: 699,
+      strikedoffprice: 1245,
+    },
+    {
+      image_url:
+      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg", 
+      name: "WOMEN'S REEBOK PP TIGHTS",
+      price: 749,
+      strikedoffprice: 1299,
+    },
+    {
+      image_url:
+      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg", 
+      name: "WOMEN'S REEBOK PP TIGHTS",
+      price: 749,
+      strikedoffprice: 1299,
+    },
+    {
+      image_url:
+      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg", 
+      name: "WOMEN'S REEBOK CLASSIC LEGGINGS",
+      price: 1399,
+      strikedoffprice: 2799,
+    },
+    {
+      image_url:
+      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg", 
+      name: "WOMEN'S REEBOK CLASSIC TIGHTS",
+      price: 1099,
+      strikedoffprice: 1249,
+    },
+    {
+      image_url:
+      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg", 
+      name: "UNISEX REEBOK SHOW SHOES",
+      price: 1249,
+      strikedoffprice: 1489,
+    },
+    {
+      image_url:
+      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg", 
+      name: "WOMEN'S CLASSIC REEBOK PANTS",
+      price: 1459,
+      strikedoffprice: 1235,
+    },
+    {
+      image_url:
+      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg", 
+      name: "WOMEN'S REEBOK RUNNING RUN ESSENTIALS SHORT SLEEVE GRAPHIC",
+      price: 849,
+      strikedoffprice: 2599,
+    },
+    {
+      image_url:
+      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg", 
+      name: "WOMEN'S REEBOK TRAINING WOR MESH TIGHTS",
+      price: 1550,
+      strikedoffprice: 2599,
+    },
+    {
+      image_url:
+      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg", 
+      name: "WOMEN'S REEBOK RUNNING OSR HIGH-IMPACT BRA",
+      price: 1399,
+      strikedoffprice: 6599,
+    },
+    {
+      image_url:
+      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg", 
+      name: "UNISEX REEBOK TRAINING ACTIVE CORE BACKPACK - MEDIUM",
+      price: 949,
+      strikedoffprice: 1899,
+    },
+    {
+      image_url:
+      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg", 
+      name: "WOMEN'S REEBOK PRINT LEGGINGS ",
+      price: 1549,
+      strikedoffprice: 1799,
+    },
+    {
+      image_url:
+      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg", 
+      name: "WOMEN'S REEBOK POLYTIGHT",
+      price: 1249,
+      strikedoffprice: 1749,
+    },
+    {
+      image_url:
+      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg", 
+      name: "WOMEN'S REEBOK SLEEVE TEE",
+      price: 699,
+      strikedoffprice: 1245,
+    },
+    {
+      image_url:
+      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg", 
+      name: "WOMEN'S REEBOK PP TIGHTS",
+      price: 749,
+      strikedoffprice: 1299,
+    },
+    {
+      image_url:
+      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg", 
+      name: "WOMEN'S REEBOK PP TIGHTS",
+      price: 749,
+      strikedoffprice: 1299,
+    },
+    {
+      image_url:
+      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg", 
+      name: "WOMEN'S REEBOK CLASSIC LEGGINGS",
+      price: 1399,
+      strikedoffprice: 2799,
+    },
+    {
+      image_url:
+      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg", 
+      name: "WOMEN'S REEBOK CLASSIC TIGHTS",
+      price: 1099,
+      strikedoffprice: 1249,
+    },
+    {
+      image_url:
+      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg", 
+      name: "UNISEX REEBOK SHOW SHOES",
+      price: 1249,
+      strikedoffprice: 1489,
+    },
+    {
+      image_url:
+      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg", 
+      name: "WOMEN'S CLASSIC REEBOK PANTS",
+      price: 1459,
+      strikedoffprice: 1235,
+    },
+    {
+      image_url:
+      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg", 
+      name: "WOMEN'S REEBOK RUNNING RUN ESSENTIALS SHORT SLEEVE GRAPHIC",
+      price: 849,
+      strikedoffprice: 2599,
+    },
+    {
+      image_url:
+      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg", 
+      name: "WOMEN'S REEBOK TRAINING WOR MESH TIGHTS",
+      price: 1550,
+      strikedoffprice: 2599,
+    },
+    {
+      image_url:
+      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg", 
+      name: "WOMEN'S REEBOK RUNNING OSR HIGH-IMPACT BRA",
+      price: 1399,
+      strikedoffprice: 6599,
+    },
+    {
+      image_url:
+      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg", 
+      name: "UNISEX REEBOK TRAINING ACTIVE CORE BACKPACK - MEDIUM",
+      price: 949,
+      strikedoffprice: 1899,
+    },
+    {
+      image_url:
+      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg", 
+      name: "WOMEN'S REEBOK PRINT LEGGINGS ",
+      price: 1549,
+      strikedoffprice: 1799,
+    },
+    {
+      image_url:
+      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg", 
+      name: "WOMEN'S REEBOK POLYTIGHT",
+      price: 1249,
+      strikedoffprice: 1749,
+    },
+    {
+      image_url:
+      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg", 
+      name: "WOMEN'S REEBOK SLEEVE TEE",
+      price: 699,
+      strikedoffprice: 1245,
+    },
+    {
+      image_url:
+      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg", 
+      name: "WOMEN'S REEBOK PP TIGHTS",
+      price: 749,
+      strikedoffprice: 1299,
+    },
+    {
+      image_url:
+      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg", 
+      name: "WOMEN'S REEBOK PP TIGHTS",
+      price: 749,
+      strikedoffprice: 1299,
+    },
+    {
+      image_url:
+      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg", 
+      name: "WOMEN'S REEBOK CLASSIC LEGGINGS",
+      price: 1399,
+      strikedoffprice: 2799,
+    },
+    {
+      image_url:
+      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg", 
+      name: "WOMEN'S REEBOK CLASSIC TIGHTS",
+      price: 1099,
+      strikedoffprice: 1249,
+    },
+    {
+      image_url:
+      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg", 
+      name: "UNISEX REEBOK SHOW SHOES",
+      price: 1249,
+      strikedoffprice: 1489,
+    },
+    {
+      image_url:
+      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg", 
+      name: "WOMEN'S CLASSIC REEBOK PANTS",
+      price: 1459,
+      strikedoffprice: 1235,
+    },
+    {
+      image_url:
+      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg", 
+      name: "WOMEN'S REEBOK RUNNING RUN ESSENTIALS SHORT SLEEVE GRAPHIC",
+      price: 849,
+      strikedoffprice: 2599,
+    },
+    {
+      image_url:
+      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg", 
+      name: "WOMEN'S REEBOK TRAINING WOR MESH TIGHTS",
+      price: 1550,
+      strikedoffprice: 2599,
+    },
+    {
+      image_url:
+      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg", 
+      name: "WOMEN'S REEBOK RUNNING OSR HIGH-IMPACT BRA",
+      price: 1399,
+      strikedoffprice: 6599,
+    },
+    {
+      image_url:
+      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg", 
+      name: "UNISEX REEBOK TRAINING ACTIVE CORE BACKPACK - MEDIUM",
+      price: 949,
+      strikedoffprice: 1899,
+    },
+    {
+      image_url:
+      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg", 
+      name: "WOMEN'S REEBOK PRINT LEGGINGS ",
+      price: 1549,
+      strikedoffprice: 1799,
+    },
+    {
+      image_url:
+      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg", 
+      name: "WOMEN'S REEBOK POLYTIGHT",
+      price: 1249,
+      strikedoffprice: 1749,
+    },
+    {
+      image_url:
+      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg", 
+      name: "WOMEN'S REEBOK SLEEVE TEE",
+      price: 699,
+      strikedoffprice: 1245,
+    },
+    {
+      image_url:
+      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg", 
+      name: "WOMEN'S REEBOK PP TIGHTS",
+      price: 749,
+      strikedoffprice: 1299,
+    },
+    {
+      image_url:
+      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg", 
+      name: "WOMEN'S REEBOK PP TIGHTS",
+      price: 749,
+      strikedoffprice: 1299,
+    },
+    {
+      image_url:
+      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg", 
+      name: "WOMEN'S REEBOK CLASSIC LEGGINGS",
+      price: 1399,
+      strikedoffprice: 2799,
+    },
+    {
+      image_url:
+      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg", 
+      name: "WOMEN'S REEBOK CLASSIC TIGHTS",
+      price: 1099,
+      strikedoffprice: 1249,
+    },
+    {
+      image_url:
+      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg", 
+      name: "UNISEX REEBOK SHOW SHOES",
+      price: 1249,
+      strikedoffprice: 1489,
+    },
+    {
+      image_url:
+      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg", 
+      name: "WOMEN'S CLASSIC REEBOK PANTS",
+      price: 1459,
+      strikedoffprice: 1235,
+    },
+    {
+      image_url:
+      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg", 
+      name: "WOMEN'S REEBOK RUNNING RUN ESSENTIALS SHORT SLEEVE GRAPHIC",
+      price: 849,
+      strikedoffprice: 2599,
+    },
+    {
+      image_url:
+      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg", 
+      name: "WOMEN'S REEBOK TRAINING WOR MESH TIGHTS",
+      price: 1550,
+      strikedoffprice: 2599,
+    },
+    {
+      image_url:
+      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg", 
+      name: "WOMEN'S REEBOK RUNNING OSR HIGH-IMPACT BRA",
+      price: 1399,
+      strikedoffprice: 6599,
+    },
+    {
+      image_url:
+      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg", 
+      name: "UNISEX REEBOK TRAINING ACTIVE CORE BACKPACK - MEDIUM",
+      price: 949,
+      strikedoffprice: 1899,
+    },
+    {
+      image_url:
+      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg", 
+      name: "WOMEN'S REEBOK PRINT LEGGINGS ",
+      price: 1549,
+      strikedoffprice: 1799,
+    },
+    {
+      image_url:
+      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg", 
+      name: "WOMEN'S REEBOK POLYTIGHT",
+      price: 1249,
+      strikedoffprice: 1749,
+    },
+    {
+      image_url:
+      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg", 
+      name: "WOMEN'S REEBOK SLEEVE TEE",
+      price: 699,
+      strikedoffprice: 1245,
+    },
+    {
+      image_url:
+      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg", 
+      name: "WOMEN'S REEBOK PP TIGHTS",
+      price: 749,
+      strikedoffprice: 1299,
+    },
+    {
+      image_url:
+      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg", 
+      name: "WOMEN'S REEBOK PP TIGHTS",
+      price: 749,
+      strikedoffprice: 1299,
+    },
+    {
+      image_url:
+      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg", 
+      name: "WOMEN'S REEBOK CLASSIC LEGGINGS",
+      price: 1399,
+      strikedoffprice: 2799,
+    },
+    {
+      image_url:
+      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg", 
+      name: "WOMEN'S REEBOK CLASSIC TIGHTS",
+      price: 1099,
+      strikedoffprice: 1249,
+    },
+    {
+      image_url:
+      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg", 
+      name: "UNISEX REEBOK SHOW SHOES",
+      price: 1249,
+      strikedoffprice: 1489,
+    },
+    {
+      image_url:
+      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg", 
+      name: "WOMEN'S CLASSIC REEBOK PANTS",
+      price: 1459,
+      strikedoffprice: 1235,
+    },
+    {
+      image_url:
+      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg", 
+      name: "WOMEN'S REEBOK RUNNING RUN ESSENTIALS SHORT SLEEVE GRAPHIC",
+      price: 849,
+      strikedoffprice: 2599,
+    },
+    {
+      image_url:
+      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg", 
+      name: "WOMEN'S REEBOK TRAINING WOR MESH TIGHTS",
+      price: 1550,
+      strikedoffprice: 2599,
+    },
+    {
+      image_url:      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg", 
+
+      name: "WOMEN'S REEBOK RUNNING OSR HIGH-IMPACT BRA",
+      price: 1399,
+      strikedoffprice: 6599,
+    },
+    {
+      image_url:      "https://images.saymedia-content.com/.image/t_share/MTczODQ1MDY3NjYzMDkxNTYw/plus-size-wedding-dresses.jpg", 
+
+      name: "UNISEX REEBOK TRAINING ACTIVE CORE BACKPACK - MEDIUM",
+      price: 949,
+      strikedoffprice: 1899,
+    },
+  ];
+
+  
+  displayProd();
+  
+  function displayProd() {
+    womensData.map(function (element) {
+      var div = document.createElement("div");
+      
+
+      var image = document.createElement("img");
+      image.setAttribute("src", element.image_url);
+
+      var name = document.createElement("h3");
+      name.textContent = element.name;
+
+      var priceBox = document.createElement("div");
+
+      var price = document.createElement("p");
+      price.textContent = "₹ " + element.price;
+
+      var strikedoffprice = document.createElement("p");
+      strikedoffprice.textContent = "₹ " + element.strikedoffprice;
+
+      priceBox.append(price, strikedoffprice);
+
+      var cart = document.createElement("button");
+      cart.textContent = "Add to cart";
+      cart.setAttribute("cart", "cartBtn");
+
+      cart.addEventListener("click", function(){
+        addToCart(element)
+      });
+
+      div.append(image, name, priceBox, cart);
+
+      document.getElementById("main").append(div);
+    });
+
+  }
+
+     
+  function addToCart(product) {
+      var cartProducts = JSON.parse(localStorage.getItem("cartList")) || [];
+      var existingProduct = cartProducts.find(function (p) {
+        return p.name === product.name;
+      });
+
+      if (existingProduct) {
+        existingProduct.quantity += 1;
+      } else {
+        var newProduct = {
+          image: product.image_url,
+          name: product.name,
+          price: product.price,
+          quantity: 1
+        };
+        cartProducts.push(newProduct);
+      }
+
+      localStorage.setItem("cartList", JSON.stringify(cartProducts));
+      displayProd();
+    }
+
+  
+</script>
